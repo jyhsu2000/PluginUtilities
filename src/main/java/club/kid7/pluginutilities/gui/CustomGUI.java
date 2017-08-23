@@ -5,7 +5,13 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CustomGUI {
+    /**
+     * 插件實例
+     */
     private static final Plugin plugin = JavaPlugin.getProvidingPlugin(CustomGUI.class);
+    /**
+     * 啟用旗標
+     */
     private static boolean enabled = false;
 
     /**
