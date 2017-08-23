@@ -1,6 +1,6 @@
 # KItemStack
 
-A chainable ItemStack for ItemStacks in Bukkit
+Chainable ItemStack for ItemStacks in Bukkit
 
 ## Usage example
 
