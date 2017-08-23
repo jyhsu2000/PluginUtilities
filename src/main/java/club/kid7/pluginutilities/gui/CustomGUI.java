@@ -9,6 +9,12 @@ public class CustomGUI {
     private static boolean enabled = false;
 
     /**
+     * 建構子
+     */
+    private CustomGUI() {
+    }
+
+    /**
      * 啟用流程
      */
     public static void enable() {

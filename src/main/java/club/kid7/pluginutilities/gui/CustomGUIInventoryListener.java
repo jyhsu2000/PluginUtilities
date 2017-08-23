@@ -9,8 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 
-public class CustomGUIInventoryListener implements Listener {
-
+class CustomGUIInventoryListener implements Listener {
     /**
      * 點擊時的處理
      *

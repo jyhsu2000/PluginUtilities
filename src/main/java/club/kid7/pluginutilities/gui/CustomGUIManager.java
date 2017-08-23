@@ -10,6 +10,12 @@ public class CustomGUIManager {
     private static HashMap<UUID, Class<? extends CustomGUIMenu>> lastOpenedMenuClassMap = Maps.newHashMap();
 
     /**
+     * 建構子
+     */
+    private CustomGUIManager() {
+    }
+
+    /**
      * 對特定玩家開啟前一次開啟的自定義選單（{@link CustomGUIInventory}）
      *
      * @param player 玩家
