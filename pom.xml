@@ -21,7 +21,7 @@
     </properties>
 
     <!-- More Project Information -->
-    <name>BannerMaker</name>
+    <name>PluginUtilities</name>
     <description>Utilities for Bukkit/Spigot plugin</description>
     <url>https://github.com/jyhsu2000/PluginUtilities</url>
     <inceptionYear>2017</inceptionYear>
