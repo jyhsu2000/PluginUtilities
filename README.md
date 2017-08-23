@@ -41,7 +41,7 @@ Replace `YOUR.OWN.PACKAGE` with your own package.
                  </artifactSet>
                  <relocations>
                      <relocation>
-                         <pattern>club.kid7</pattern>
+                         <pattern>club.kid7.PluginUtilities</pattern>
                          <shadedPattern>YOUR.OWN.PACKAGE</shadedPattern>
                      </relocation>
                  </relocations>
