@@ -9,7 +9,7 @@ Utilities for Bukkit/Spigot plugin
 
 ## Install
 
-**Step 1.** Add the JitPack repository to your build file
+**Step 1.** Add the JitPack repository to your build file.
 ```xml
 <repositories>
     <repository>
@@ -19,7 +19,10 @@ Utilities for Bukkit/Spigot plugin
 </repositories>
 ```
 
-**Step 2.** Add the dependency
+**Step 2.** Add the dependency.  
+> You can change the `version` property as you want.  
+> All available version can be found [here](https://jitpack.io/#jyhsu2000/PluginUtilities).
+
 ```xml
 <dependency>
     <groupId>com.github.jyhsu2000</groupId>
