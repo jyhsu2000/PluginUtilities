@@ -5,7 +5,7 @@
 Utilities for Bukkit/Spigot plugin
 
 ## Components
-- [KItemStack](https://github.com/jyhsu2000/PluginUtilities/tree/master/src/main/java/club/kid7/PluginUtilities/KItemStack) - A chainable ItemStack for ItemStacks in Bukkit
+- [KItemStack](https://github.com/jyhsu2000/PluginUtilities/tree/master/src/main/java/club/kid7/pluginutilities/kitemstack) - A chainable ItemStack for ItemStacks in Bukkit
 
 ## Install
 
