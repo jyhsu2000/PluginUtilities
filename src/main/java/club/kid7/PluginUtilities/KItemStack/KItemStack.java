@@ -1,4 +1,4 @@
-package club.kid7.PluginUtilities;
+package club.kid7.PluginUtilities.KItemStack;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
