@@ -27,7 +27,7 @@ Utilities for Bukkit/Spigot plugin
 <dependency>
     <groupId>com.github.jyhsu2000</groupId>
     <artifactId>PluginUtilities</artifactId>
-    <version>master-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
