@@ -36,11 +36,11 @@ public class MainMenu implements CustomGUIMenu {
                 player.getInventory().addItem(new ItemStack(Material.APPLE, 5));
             }
         }).set(ClickType.RIGHT, new CustomGUIItemHandler() {
-              @Override
-              public void action() {
-                  //Jump to another menu when Right-Click
-                  CustomGUIManager.open(player, AnotherMenu.class);
-              }
+            @Override
+            public void action() {
+                //Jump to another menu when Right-Click
+                CustomGUIManager.open(player, AnotherMenu.class);
+            }
         });
         
         //... or normal item
