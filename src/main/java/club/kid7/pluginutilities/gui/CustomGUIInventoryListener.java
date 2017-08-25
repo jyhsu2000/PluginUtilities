@@ -35,7 +35,7 @@ class CustomGUIInventoryListener implements Listener {
         //點擊類型
         ClickType clickType = event.getClick();
         //觸發點擊事件
-        customGUIInventory.action(rawSlot, clickType);
+        customGUIInventory.action(event, rawSlot, clickType);
     }
 
     /**

@@ -31,13 +31,13 @@ public class MainMenu implements CustomGUIMenu {
         KItemStack appleItemStack = new KItemStack(Material.APPLE).amount(32).name("Take some apples");
         menu.setClickableItem(5, appleItemStack).set(ClickType.LEFT, new CustomGUIItemHandler() {
             @Override
-            public void action() {
+            public void action(InventoryClickEvent event) {
                 //Do somethings when Left-Click
                 player.getInventory().addItem(new ItemStack(Material.APPLE, 5));
             }
         }).set(ClickType.RIGHT, new CustomGUIItemHandler() {
             @Override
-            public void action() {
+            public void action(InventoryClickEvent event) {
                 //Jump to another menu when Right-Click
                 CustomGUIManager.open(player, AnotherMenu.class);
             }

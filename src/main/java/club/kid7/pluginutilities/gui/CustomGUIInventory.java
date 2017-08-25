@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -87,12 +88,12 @@ public class CustomGUIInventory {
      * @param slot      位置
      * @param clickType 點擊類型
      */
-    void action(int slot, ClickType clickType) {
+    void action(InventoryClickEvent event, int slot, ClickType clickType) {
         CustomGUIItem customGUIItem = customGUIItemMap.get(slot);
         if (customGUIItem == null) {
             return;
         }
-        customGUIItem.action(clickType);
+        customGUIItem.action(event, clickType);
     }
 
     /**

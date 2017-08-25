@@ -2,6 +2,7 @@ package club.kid7.pluginutilities.gui;
 
 import com.google.common.collect.Maps;
 import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.util.HashMap;
 
@@ -20,7 +21,7 @@ public class CustomGUIItem {
     /**
      * 設定特定點擊類型的動作
      *
-     * @param clickType 點擊類型
+     * @param clickType            點擊類型
      * @param customGUIItemHandler 動作
      * @return this
      */
@@ -44,11 +45,11 @@ public class CustomGUIItem {
      *
      * @param clickType 點擊類型
      */
-    void action(ClickType clickType) {
+    void action(InventoryClickEvent event, ClickType clickType) {
         CustomGUIItemHandler customGUIItemHandler = get(clickType);
         if (customGUIItemHandler == null) {
             return;
         }
-        customGUIItemHandler.action();
+        customGUIItemHandler.action(event);
     }
 }
