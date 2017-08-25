@@ -214,6 +214,23 @@ public class KItemStack extends ItemStack {
     }
 
     /**
+     * Sets {@link Pattern}s to the {@link ItemStack}
+     *
+     * @param list the pattern list to set
+     * @return this builder for chaining
+     * @since 1.3.1
+     */
+    public KItemStack setPatterns(List<Pattern> list) {
+        if (getType() != Material.BANNER) {
+            throw new IllegalArgumentException("setPatterns() only applicable for banner!");
+        }
+        final BannerMeta meta = (BannerMeta) getItemMeta();
+        meta.setPatterns(list);
+        setItemMeta(meta);
+        return this;
+    }
+
+    /**
      * Clears the list of {@link Pattern}s of the {@link ItemStack}
      *
      * @return this builder for chaining
@@ -221,7 +238,7 @@ public class KItemStack extends ItemStack {
      */
     public KItemStack clearPatterns() {
         if (getType() != Material.BANNER) {
-            throw new IllegalArgumentException("pattern() only applicable for banner!");
+            throw new IllegalArgumentException("clearPatterns() only applicable for banner!");
         }
         final BannerMeta meta = (BannerMeta) getItemMeta();
         meta.setPatterns(new ArrayList<Pattern>());
