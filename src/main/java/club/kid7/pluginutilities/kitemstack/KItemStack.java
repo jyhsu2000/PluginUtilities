@@ -3,8 +3,10 @@ package club.kid7.pluginutilities.kitemstack;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.block.banner.Pattern;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.BannerMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.material.MaterialData;
@@ -184,14 +186,46 @@ public class KItemStack extends ItemStack {
      * @since 1.0
      */
     public KItemStack color(Color color) {
-        if (getType() == Material.LEATHER_BOOTS || getType() == Material.LEATHER_CHESTPLATE
-            || getType() == Material.LEATHER_HELMET || getType() == Material.LEATHER_LEGGINGS) {
-            LeatherArmorMeta meta = (LeatherArmorMeta) getItemMeta();
-            meta.setColor(color);
-            setItemMeta(meta);
-            return this;
-        } else {
+        if (getType() != Material.LEATHER_BOOTS && getType() != Material.LEATHER_CHESTPLATE
+            && getType() != Material.LEATHER_HELMET && getType() != Material.LEATHER_LEGGINGS) {
             throw new IllegalArgumentException("color() only applicable for leather armor!");
         }
+        LeatherArmorMeta meta = (LeatherArmorMeta) getItemMeta();
+        meta.setColor(color);
+        setItemMeta(meta);
+        return this;
+    }
+
+    /**
+     * Adds a {@link Pattern} to the {@link ItemStack}
+     *
+     * @param pattern the pattern to add
+     * @return this builder for chaining
+     * @since 1.3.1
+     */
+    public KItemStack pattern(Pattern pattern) {
+        if (getType() != Material.BANNER) {
+            throw new IllegalArgumentException("pattern() only applicable for banner!");
+        }
+        final BannerMeta meta = (BannerMeta) getItemMeta();
+        meta.addPattern(pattern);
+        setItemMeta(meta);
+        return this;
+    }
+
+    /**
+     * Clears the list of {@link Pattern}s of the {@link ItemStack}
+     *
+     * @return this builder for chaining
+     * @since 1.3.1
+     */
+    public KItemStack clearPatterns() {
+        if (getType() != Material.BANNER) {
+            throw new IllegalArgumentException("pattern() only applicable for banner!");
+        }
+        final BannerMeta meta = (BannerMeta) getItemMeta();
+        meta.setPatterns(new ArrayList<Pattern>());
+        setItemMeta(meta);
+        return this;
     }
 }
