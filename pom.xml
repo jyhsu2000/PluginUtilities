@@ -6,7 +6,7 @@
     <!-- The Basics -->
     <groupId>club.kid7</groupId>
     <artifactId>PluginUtilities</artifactId>
-    <version>1.3.1</version>
+    <version>1.4</version>
     <dependencies>
         <!-- Bukkit API -->
         <dependency>
