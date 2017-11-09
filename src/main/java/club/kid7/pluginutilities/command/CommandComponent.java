@@ -58,10 +58,12 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
         //檢查權限
         if (!hasPermission(sender)) {
             sender.sendMessage(ChatColor.RED + "Lacking permission " + permission);
+            return true;
         }
         //限玩家執行
         if (onlyFromPlayer && !(sender instanceof Player)) {
             sender.sendMessage(ChatColor.RED + "This command can only be used by players in game");
+            return true;
         }
         //執行指令
         return executeCommand(sender, command, label, args);
