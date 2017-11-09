@@ -17,7 +17,7 @@ import java.util.Map;
  * Flexible nested command system
  *
  * @author jyhsu(KID)
- * @version 1.4
+ * @version 1.4.0
  */
 public abstract class CommandComponent implements CommandExecutor, TabCompleter {
     private CommandComponent parent = null;
