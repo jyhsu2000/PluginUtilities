@@ -9,7 +9,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BannerMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
-import org.bukkit.material.Banner;
 import org.bukkit.material.MaterialData;
 
 import java.util.ArrayList;
@@ -205,7 +204,7 @@ public class KItemStack extends ItemStack {
      * @since 1.3.1
      */
     public KItemStack pattern(Pattern pattern) {
-        if (!(getData() instanceof Banner)) {
+        if (!getType().name().contains("BANNER")) {
             throw new IllegalArgumentException("pattern() only applicable for banner!");
         }
         final BannerMeta meta = (BannerMeta) getItemMeta();
@@ -222,7 +221,7 @@ public class KItemStack extends ItemStack {
      * @since 1.3.1
      */
     public KItemStack setPatterns(List<Pattern> list) {
-        if (!(getData() instanceof Banner)) {
+        if (!getType().name().contains("BANNER")) {
             throw new IllegalArgumentException("setPatterns() only applicable for banner!");
         }
         final BannerMeta meta = (BannerMeta) getItemMeta();
@@ -238,7 +237,7 @@ public class KItemStack extends ItemStack {
      * @since 1.3.1
      */
     public KItemStack clearPatterns() {
-        if (!(getData() instanceof Banner)) {
+        if (!getType().name().contains("BANNER")) {
             throw new IllegalArgumentException("clearPatterns() only applicable for banner!");
         }
         final BannerMeta meta = (BannerMeta) getItemMeta();
