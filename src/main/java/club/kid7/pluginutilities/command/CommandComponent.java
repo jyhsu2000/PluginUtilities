@@ -88,7 +88,7 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
             }
         }
         //取得部分指令
-        String partialCommand = args[0];
+        String partialCommand = args[args.length - 1];
         //匹配部分指令
         StringUtil.copyPartialMatches(partialCommand, suggestions, completions);
 
