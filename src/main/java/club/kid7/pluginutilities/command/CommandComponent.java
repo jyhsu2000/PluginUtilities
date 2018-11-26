@@ -71,20 +71,7 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
 
     public final List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         List<String> completions = new ArrayList<>();
-        if (args.length == 1) {
-            //本身的建議
-            List<String> suggestions = getSuggestions(sender, command, label, args);
-            //根據權限產生子指令清單
-            for (Map.Entry<String, CommandComponent> subCommandEntry : subCommands.entrySet()) {
-                if (subCommandEntry.getValue().hasPermission(sender)) {
-                    suggestions.add(subCommandEntry.getKey());
-                }
-            }
-            //取得部分指令
-            String partialCommand = args[0];
-            //匹配部分指令
-            StringUtil.copyPartialMatches(partialCommand, suggestions, completions);
-        } else if (args.length > 1) {
+        if (args.length > 1) {
             //試著找出子指令
             CommandComponent subCommand = subCommands.get(args[0].toLowerCase());
             if (subCommand != null) {
@@ -92,6 +79,19 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
                 return subCommand.onTabComplete(sender, command, label + " " + args[0], Arrays.copyOfRange(args, 1, args.length));
             }
         }
+        //本身的建議
+        List<String> suggestions = getSuggestions(sender, command, label, args);
+        //根據權限產生子指令清單
+        for (Map.Entry<String, CommandComponent> subCommandEntry : subCommands.entrySet()) {
+            if (subCommandEntry.getValue().hasPermission(sender)) {
+                suggestions.add(subCommandEntry.getKey());
+            }
+        }
+        //取得部分指令
+        String partialCommand = args[0];
+        //匹配部分指令
+        StringUtil.copyPartialMatches(partialCommand, suggestions, completions);
+
         return completions;
     }
 
