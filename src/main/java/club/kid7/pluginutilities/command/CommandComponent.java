@@ -81,10 +81,12 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
         }
         //本身的建議
         List<String> suggestions = getSuggestions(sender, command, label, args);
-        //根據權限產生子指令清單
-        for (Map.Entry<String, CommandComponent> subCommandEntry : subCommands.entrySet()) {
-            if (subCommandEntry.getValue().hasPermission(sender)) {
-                suggestions.add(subCommandEntry.getKey());
+        if (args.length == 1) {
+            //根據權限產生子指令清單
+            for (Map.Entry<String, CommandComponent> subCommandEntry : subCommands.entrySet()) {
+                if (subCommandEntry.getValue().hasPermission(sender)) {
+                    suggestions.add(subCommandEntry.getKey());
+                }
             }
         }
         //取得部分指令
