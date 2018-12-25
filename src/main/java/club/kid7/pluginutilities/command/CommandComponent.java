@@ -1,5 +1,6 @@
 package club.kid7.pluginutilities.command;
 
+import club.kid7.pluginutilities.command.exception.CommandExecuteException;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import org.bukkit.ChatColor;
@@ -66,7 +67,12 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
             return true;
         }
         //執行指令
-        return executeCommand(sender, command, label, args);
+        try {
+            executeCommand(sender, command, label, args);
+        } catch (CommandExecuteException e) {
+            sender.sendMessage(ChatColor.RED + e.getMessage());
+        }
+        return true;
     }
 
     public final List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
@@ -146,7 +152,7 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
      * @param args    參數
      * @return 是否執行成功
      */
-    public boolean executeCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean executeCommand(CommandSender sender, Command command, String label, String[] args) throws CommandExecuteException {
         //未實作指令，可能只是群組，顯示子指令清單
         //根據權限產生子指令清單
         for (Map.Entry<String, CommandComponent> subCommandEntry : subCommands.entrySet()) {
