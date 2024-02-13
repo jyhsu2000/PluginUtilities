@@ -68,7 +68,7 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
         }
         //執行指令
         try {
-            executeCommand(sender, command, label, args);
+            return executeCommand(sender, command, label, args);
         } catch (CommandExecuteException e) {
             sender.sendMessage(ChatColor.RED + e.getMessage());
         }
