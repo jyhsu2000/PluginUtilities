@@ -3,6 +3,7 @@ package club.kid7.pluginutilities.gui;
 import com.google.common.collect.Maps;
 import org.bukkit.entity.Player;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -39,13 +40,13 @@ public class CustomGUIManager {
             if (lastOpenedMenuClass == null) {
                 return;
             }
-            CustomGUIMenu menu = lastOpenedMenuClass.newInstance();
+            CustomGUIMenu menu = lastOpenedMenuClass.getDeclaredConstructor().newInstance();
             CustomGUIInventory inventory = menu.build(player);
             if (inventory == null) {
                 return;
             }
             inventory.open(player);
-        } catch (InstantiationException | IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -58,14 +59,14 @@ public class CustomGUIManager {
      */
     public static void open(Player player, Class<? extends CustomGUIMenu> menuClass) {
         try {
-            CustomGUIMenu menu = menuClass.newInstance();
+            CustomGUIMenu menu = menuClass.getDeclaredConstructor().newInstance();
             lastOpenedMenuClassMap.put(player.getUniqueId(), menuClass);
             CustomGUIInventory inventory = menu.build(player);
             if (inventory == null) {
                 return;
             }
             inventory.open(player);
-        } catch (InstantiationException | IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
