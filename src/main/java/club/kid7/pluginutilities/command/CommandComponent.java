@@ -8,6 +8,7 @@ import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.StringUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,7 +46,7 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
         this.onlyFromPlayer = onlyFromPlayer;
     }
 
-    public final boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public final boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         //有參數
         if (args.length > 0) {
             //試著找出子指令
@@ -75,7 +76,7 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
         return true;
     }
 
-    public final List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+    public final List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         List<String> completions = new ArrayList<>();
         if (args.length > 1) {
             //試著找出子指令

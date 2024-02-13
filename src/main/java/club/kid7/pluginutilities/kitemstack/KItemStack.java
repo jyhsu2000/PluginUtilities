@@ -82,7 +82,7 @@ public class KItemStack extends ItemStack {
         final ItemMeta meta = getItemMeta();
         List<String> lore = meta.getLore();
         if (lore == null) {
-            lore = new ArrayList<String>();
+            lore = new ArrayList<>();
         }
         lore.add(text);
         meta.setLore(lore);
@@ -160,7 +160,7 @@ public class KItemStack extends ItemStack {
      */
     public KItemStack clearLore() {
         final ItemMeta meta = getItemMeta();
-        meta.setLore(new ArrayList<String>());
+        meta.setLore(new ArrayList<>());
         setItemMeta(meta);
         return this;
     }
@@ -241,7 +241,7 @@ public class KItemStack extends ItemStack {
             throw new IllegalArgumentException("clearPatterns() only applicable for banner!");
         }
         final BannerMeta meta = (BannerMeta) getItemMeta();
-        meta.setPatterns(new ArrayList<Pattern>());
+        meta.setPatterns(new ArrayList<>());
         setItemMeta(meta);
         return this;
     }
