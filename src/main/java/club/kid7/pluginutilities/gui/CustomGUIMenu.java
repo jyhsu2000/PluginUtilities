@@ -9,5 +9,5 @@ public interface CustomGUIMenu {
      * @param player 玩家
      * @return 自定義選單
      */
-    public CustomGUIInventory build(final Player player);
+    CustomGUIInventory build(final Player player);
 }

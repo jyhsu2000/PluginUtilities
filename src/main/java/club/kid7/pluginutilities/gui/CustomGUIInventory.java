@@ -20,7 +20,7 @@ public class CustomGUIInventory {
     /**
      * 物品欄
      */
-    private Inventory inventory;
+    private final Inventory inventory;
     /**
      * 每個位置的自定義選單物品
      */

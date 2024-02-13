@@ -10,7 +10,7 @@ public class CustomGUIItem {
     /**
      * 各點擊類型的動作
      */
-    private HashMap<ClickType, CustomGUIItemHandler> customGUIItemHandlerMap = Maps.newHashMap();
+    private final HashMap<ClickType, CustomGUIItemHandler> customGUIItemHandlerMap = Maps.newHashMap();
 
     /**
      * 建構子

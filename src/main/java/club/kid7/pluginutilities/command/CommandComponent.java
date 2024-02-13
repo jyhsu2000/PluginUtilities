@@ -22,19 +22,19 @@ import java.util.Map;
  */
 public abstract class CommandComponent implements CommandExecutor, TabCompleter {
     private CommandComponent parent = null;
-    protected Plugin plugin;
+    protected final Plugin plugin;
     //名稱
-    private String name;
+    private final String name;
     //介紹
-    private String description;
+    private final String description;
     //權限
-    private String permission;
+    private final String permission;
     //使用方法
-    private String usage;
+    private final String usage;
     //僅能由玩家執行
-    private boolean onlyFromPlayer;
+    private final boolean onlyFromPlayer;
 
-    private Map<String, CommandComponent> subCommands = Maps.newHashMap();
+    private final Map<String, CommandComponent> subCommands = Maps.newHashMap();
 
     public CommandComponent(Plugin plugin, String name, String description, String permission, String usage, boolean onlyFromPlayer) {
         this.plugin = plugin;
@@ -110,7 +110,7 @@ public abstract class CommandComponent implements CommandExecutor, TabCompleter 
      * @param commandComponent 指令實體
      */
     public final void registerSubCommand(String label, CommandComponent commandComponent) {
-        Preconditions.checkArgument(label.length() > 0, "Label cannot be empty");
+        Preconditions.checkArgument(!label.isEmpty(), "Label cannot be empty");
         subCommands.put(label.toLowerCase(), commandComponent);
         commandComponent.setParent(this);
     }

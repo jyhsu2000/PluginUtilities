@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class CustomGUIManager {
-    private static HashMap<UUID, Class<? extends CustomGUIMenu>> lastOpenedMenuClassMap = Maps.newHashMap();
+    private static final HashMap<UUID, Class<? extends CustomGUIMenu>> lastOpenedMenuClassMap = Maps.newHashMap();
 
     /**
      * 建構子
