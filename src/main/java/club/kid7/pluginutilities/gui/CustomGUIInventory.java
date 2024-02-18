@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+record SlotActionKey(int slot, ClickType clickType) {
+}
+
 public class CustomGUIInventory {
     /**
      * 被玩家開啟的自定義選單與物品欄的對應
@@ -21,10 +24,11 @@ public class CustomGUIInventory {
      * 物品欄
      */
     private final Inventory inventory;
+
     /**
-     * 每個位置的自定義選單物品
+     * 所有位置與點擊類型對應的動作
      */
-    private final HashMap<Integer, CustomGUIItem> customGUIItemMap = Maps.newHashMap();
+    private final HashMap<SlotActionKey, ActionHandler> slotActionMap = Maps.newHashMap();
 
     /**
      * 建構子
@@ -59,27 +63,19 @@ public class CustomGUIInventory {
     }
 
     /**
-     * 設定一般物品
+     * 設定物品
      *
-     * @param slot      位置
-     * @param itemStack 顯示用物品
+     * @param slot         位置
+     * @param itemStack    顯示用物品
+     * @param clickActions 點擊的動作
      */
-    public void setItem(int slot, ItemStack itemStack) {
+    public void setItem(int slot, ItemStack itemStack, ClickAction... clickActions) {
         inventory.setItem(slot, itemStack);
-    }
-
-    /**
-     * 設定自定義選單物品
-     *
-     * @param slot      位置
-     * @param itemStack 顯示用物品
-     * @return 自定義選單物品
-     */
-    public CustomGUIItem setClickableItem(int slot, ItemStack itemStack) {
-        setItem(slot, itemStack);
-        CustomGUIItem customGUIItem = new CustomGUIItem();
-        customGUIItemMap.put(slot, customGUIItem);
-        return customGUIItem;
+        for (ClickAction clickAction : clickActions) {
+            SlotActionKey slotActionKey = new SlotActionKey(slot, clickAction.clickType());
+            ActionHandler actionHandler = clickAction.actionHandler();
+            slotActionMap.put(slotActionKey, actionHandler);
+        }
     }
 
     /**
@@ -89,11 +85,12 @@ public class CustomGUIInventory {
      * @param clickType 點擊類型
      */
     void action(InventoryClickEvent event, int slot, ClickType clickType) {
-        CustomGUIItem customGUIItem = customGUIItemMap.get(slot);
-        if (customGUIItem == null) {
+        SlotActionKey slotActionKey = new SlotActionKey(slot, clickType);
+        ActionHandler actionHandler = slotActionMap.get(slotActionKey);
+        if (actionHandler == null) {
             return;
         }
-        customGUIItem.action(event, clickType);
+        actionHandler.action(event);
     }
 
     /**
