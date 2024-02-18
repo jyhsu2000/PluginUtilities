@@ -71,6 +71,16 @@ public class CustomGUIInventory {
      */
     public void setItem(int slot, ItemStack itemStack, ClickAction... clickActions) {
         inventory.setItem(slot, itemStack);
+        addActions(slot, clickActions);
+    }
+
+    /**
+     * 新增點擊動作
+     *
+     * @param slot         位置
+     * @param clickActions 點擊的動作
+     */
+    public void addActions(int slot, ClickAction... clickActions) {
         for (ClickAction clickAction : clickActions) {
             SlotActionKey slotActionKey = new SlotActionKey(slot, clickAction.clickType());
             ActionHandler actionHandler = clickAction.actionHandler();
