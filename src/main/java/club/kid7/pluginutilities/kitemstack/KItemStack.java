@@ -9,7 +9,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BannerMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
-import org.bukkit.material.MaterialData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,30 +89,6 @@ public class KItemStack extends ItemStack {
         return this;
     }
 
-    /**
-     * Changes the durability of the {@link ItemStack}
-     *
-     * @param durability the new durability to set
-     * @return this builder for chaining
-     * @since 1.0
-     */
-    public KItemStack durability(final int durability) {
-        setDurability((short) durability);
-        return this;
-    }
-
-    /**
-     * Changes the data of the {@link ItemStack}
-     *
-     * @param data the new data to set
-     * @return this builder for chaining
-     * @since 1.0
-     */
-    @SuppressWarnings("deprecation")
-    public KItemStack data(final int data) {
-        setData(new MaterialData(getType(), (byte) data));
-        return this;
-    }
 
     /**
      * Adds an {@link Enchantment} with the given level to the {@link ItemStack}
