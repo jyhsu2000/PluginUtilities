@@ -5,10 +5,11 @@
 Utilities for Bukkit/Spigot plugin
 
 ## Components
-- [KItemStack](https://github.com/jyhsu2000/PluginUtilities/tree/master/src/main/java/club/kid7/pluginutilities/kitemstack) - Chainable ItemStack for ItemStacks in Bukkit
-- [KConfigManager](https://github.com/jyhsu2000/PluginUtilities/tree/master/src/main/java/club/kid7/pluginutilities/configuration) - Config Manager
-- [CustomGUI](https://github.com/jyhsu2000/PluginUtilities/tree/master/src/main/java/club/kid7/pluginutilities/gui) - Custom GUI inventory menu
-- [CommandComponent](https://github.com/jyhsu2000/PluginUtilities/tree/master/src/main/java/club/kid7/pluginutilities/command) - Flexible nested command system
+
+- [KItemStack](./src/main/java/club/kid7/pluginutilities/kitemstack) - Chainable ItemStack for ItemStacks in Bukkit
+- [KConfigManager](./src/main/java/club/kid7/pluginutilities/configuration) - Config Manager
+- [CustomGUI](./src/main/java/club/kid7/pluginutilities/gui) - Custom GUI inventory menu
+- [CommandComponent](./src/main/java/club/kid7/pluginutilities/command) - Flexible nested command system
 
 ## Install
 
