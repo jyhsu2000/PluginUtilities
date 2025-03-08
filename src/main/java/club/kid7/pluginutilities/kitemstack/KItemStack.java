@@ -65,6 +65,7 @@ public class KItemStack extends ItemStack {
      */
     public KItemStack name(final String name) {
         final ItemMeta meta = getItemMeta();
+        assert meta != null;
         meta.setDisplayName(name);
         setItemMeta(meta);
         return this;
@@ -79,6 +80,7 @@ public class KItemStack extends ItemStack {
      */
     public KItemStack lore(final String text) {
         final ItemMeta meta = getItemMeta();
+        assert meta != null;
         List<String> lore = meta.getLore();
         if (lore == null) {
             lore = new ArrayList<>();
@@ -135,6 +137,7 @@ public class KItemStack extends ItemStack {
      */
     public KItemStack clearLore() {
         final ItemMeta meta = getItemMeta();
+        assert meta != null;
         meta.setLore(new ArrayList<>());
         setItemMeta(meta);
         return this;
@@ -166,6 +169,7 @@ public class KItemStack extends ItemStack {
             throw new IllegalArgumentException("color() only applicable for leather armor!");
         }
         LeatherArmorMeta meta = (LeatherArmorMeta) getItemMeta();
+        assert meta != null;
         meta.setColor(color);
         setItemMeta(meta);
         return this;
@@ -183,6 +187,7 @@ public class KItemStack extends ItemStack {
             throw new IllegalArgumentException("pattern() only applicable for banner!");
         }
         final BannerMeta meta = (BannerMeta) getItemMeta();
+        assert meta != null;
         meta.addPattern(pattern);
         setItemMeta(meta);
         return this;
@@ -200,6 +205,7 @@ public class KItemStack extends ItemStack {
             throw new IllegalArgumentException("setPatterns() only applicable for banner!");
         }
         final BannerMeta meta = (BannerMeta) getItemMeta();
+        assert meta != null;
         meta.setPatterns(list);
         setItemMeta(meta);
         return this;
@@ -216,6 +222,7 @@ public class KItemStack extends ItemStack {
             throw new IllegalArgumentException("clearPatterns() only applicable for banner!");
         }
         final BannerMeta meta = (BannerMeta) getItemMeta();
+        assert meta != null;
         meta.setPatterns(new ArrayList<>());
         setItemMeta(meta);
         return this;
