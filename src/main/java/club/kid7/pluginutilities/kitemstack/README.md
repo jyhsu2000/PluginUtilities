@@ -7,8 +7,6 @@ Chainable ItemStack for ItemStacks in Bukkit
 ```java
 ItemStack is = new KItemStack(Material.LEATHER_HELMET)
     .amount(2)
-    .data(4)
-    .durability(4)
     .enchantment(Enchantment.ARROW_INFINITE)
     .enchantment(Enchantment.LUCK, 2)
     .name(ChatColor.RED + "the name")
