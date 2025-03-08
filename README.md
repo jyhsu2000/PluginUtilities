@@ -1,5 +1,4 @@
 # PluginUtilities
-[![Build Status](https://ci.kid7.club/job/PluginUtilities/badge/icon)](https://ci.kid7.club/job/PluginUtilities/)
 [![](https://jitpack.io/v/jyhsu2000/PluginUtilities.svg)](https://jitpack.io/#jyhsu2000/PluginUtilities)
 [![license](https://img.shields.io/github/license/jyhsu2000/PluginUtilities.svg)](https://github.com/jyhsu2000/PluginUtilities/blob/master/LICENSE)
 
